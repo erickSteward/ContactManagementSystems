@@ -144,5 +144,22 @@ public class ContactMananger {
 
     }
 
+    public void searchContactMenu(){
+      System.out.println("Enter search term: ");
+      String searchTerm = scanner.nextLine();
+      boolean Found = false;
+
+      for(Contact contact : contacts.values()){
+        if (contact.getName().toLowerCase().contains(searchTerm) || contact.getEmail().toLowerCase().contains(searchTerm) || contact.getPhoneNumber().contains(searchTerm)) {
+          System.out.println(contact.toString());
+          Found = true;
+        }
+      }
+
+      if (!Found) {
+        System.out.println("Contact not found matching with the search term.");
+      }
+    }
+
   }
 
