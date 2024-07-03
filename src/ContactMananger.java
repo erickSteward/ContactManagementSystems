@@ -1,7 +1,10 @@
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+
+
 
 public class ContactMananger {
   private Map<String, Contact> contacts;
@@ -181,7 +184,7 @@ public class ContactMananger {
 
       //A method to view contacts in groups
       public void viewContactsToGroupsMenu(){
-       System.out.print("Enter Group name: "); 
+      System.out.print("Enter Group name: "); 
         String groupName = scanner.nextLine();
 
         Set<String> groupMembers  = groups.get(groupName);
