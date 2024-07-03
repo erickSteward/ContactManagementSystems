@@ -144,6 +144,7 @@ public class ContactMananger {
 
     }
 
+    //A method to search a contact
     public void searchContactMenu(){
       System.out.println("Enter search term: ");
       String searchTerm = scanner.nextLine();
@@ -160,6 +161,44 @@ public class ContactMananger {
         System.out.println("Contact not found matching with the search term.");
       }
     }
+
+    //A method to add contact to a group 
+    public void addContactToGroupMenu(){
+      System.out.println("Enter Contact name: ");
+      String contactName = scanner.nextLine();
+
+      if(!contacts.containsKey(contactName)){
+        System.out.println("Contact not found.");
+        return;
+      }
+
+      System.out.println("Enter group name: ");
+      String groupName = scanner.nextLine();
+
+      groups.computeIfAbsent(groupName, k -> new HashSet<>()).add(contactName);
+      System.out.println("Contact Added to group successfully.");
+      }
+
+      //A method to view contacts in groups
+      public void viewContactsToGroupsMenu(){
+       System.out.print("Enter Group name: "); 
+        String groupName = scanner.nextLine();
+
+        Set<String> groupMembers  = groups.get(groupName);
+
+        if (groupMembers == null || groupMembers.isEmpty()) {
+          System.out.println("No Contacts found in this group");
+        }
+
+        System.out.println("Contacts in the recent Group " + groupName + ": " );
+
+        for(String memberName : groupMembers){
+          Contact contact = contacts.get(groupMembers);
+          if(contact != null){
+            System.out.println(contact);
+          }
+        }
+      }
 
   }
 
